@@ -1,9 +1,10 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import Axios from 'axios';
 import Select from 'react-select';
+import Data from './Data';
+import ReactDOM from 'react-dom';
 
 function App() {
 
@@ -18,9 +19,8 @@ function App() {
   }, []);
 
   const submitData = () => {
-    Axios.post('http://localhost:3001/api/insert', { Name: Name, Department: Department }).then(() => {
-      alert("Data saved successfully");
-    });
+    Axios.post('http://localhost:3001/api/insert', { Name: Name, Department: Department })
+    
   }
 
   const departmentList = [
@@ -56,31 +56,22 @@ function App() {
 
           <h5> Select Employee Department : </h5>
 
-          <Select className="drop-down" options={departmentList} onChange={(e) => { setDepartment(e.label) }}/>
+          <Select className="drop-down" options={departmentList} onChange={(e) => { setDepartment(e.label) }} />
 
         </div>
 
         <div className="save-button">
           <ButtonComponent className="btn" onClick={submitData}> Save </ButtonComponent>
         </div>
+
       </div>
 
       <div className="data-table flex">
 
-        <div className="data-heading">
-          <h2> LIST OF EMPLOYEE'S </h2>
-        </div>
-
         <div className="data-content">
-
-          <GridComponent dataSource={employeeList} className="grid-table">
-            <ColumnsDirective>
-              <ColumnDirective field='Name' width='50' textAlign="center" />
-              <ColumnDirective field='Department' width='50' />
-            </ColumnsDirective>
-          </GridComponent>
-
+          <Data employeeList={employeeList} />
         </div>
+
       </div>
 
     </div>
