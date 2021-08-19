@@ -9,10 +9,12 @@ const Data = ({ employeeList }) => {
             </div>
 
             <GridComponent dataSource={employeeList} className="grid-table">
+
                 <ColumnsDirective>
                     <ColumnDirective field='Name' width='50' textAlign="center" />
                     <ColumnDirective field='Department' width='50' />
                 </ColumnsDirective>
+                
             </GridComponent>
 
         </>

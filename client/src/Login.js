@@ -28,7 +28,7 @@ const Login = () => {
 
             <div className="login flex">
                 <input type="text" name="username" placeholder="Enter Username" onChange={(e) => { setUsername(e.target.value) }} />
-                <input type="text" name="password" placeholder="Enter Password" onChange={(e) => { setPassword(e.target.value) } } />
+                <input type="text" name="password" placeholder="Enter Password" onChange={(e) => { setPassword(e.target.value) }} />
             </div>
 
             <div className="save-button">

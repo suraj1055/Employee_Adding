@@ -1,10 +1,9 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import Axios from 'axios';
-import Select from 'react-select';
+
 import Data from './Data';
-import ReactDOM from 'react-dom';
+import Input from './Input';
 
 function App() {
 
@@ -20,7 +19,6 @@ function App() {
 
   const submitData = () => {
     Axios.post('http://localhost:3001/api/insert', { Name: Name, Department: Department })
-    
   }
 
   const departmentList = [
@@ -42,34 +40,13 @@ function App() {
     <div className="container">
 
       <div className="header flex">
-        <div className="Form-heading">
-          <h3> EMPLOYEE DETAILS </h3>
-        </div>
-
-        <form>
-          <div className="form-control">
-            <input name="Name " className="Employee-Details" type="text" placeholder="Enter Employee Name" onChange={(e) => { setName(e.target.value) }} />
-          </div>
-        </form>
-
-        <div className="form-control">
-
-          <h5> Select Employee Department : </h5>
-
-          <Select className="drop-down" options={departmentList} onChange={(e) => { setDepartment(e.label) }} />
-
-        </div>
-
-        <div className="save-button">
-          <ButtonComponent className="btn" onClick={submitData}> Save </ButtonComponent>
-        </div>
-
+        <Input setName={setName} departmentList={departmentList} setDepartment={setDepartment} submitData={submitData}/>
       </div>
 
       <div className="data-table flex">
 
         <div className="data-content">
-          <Data employeeList={employeeList} />
+         <Data employeeList={employeeList}/>
         </div>
 
       </div>
