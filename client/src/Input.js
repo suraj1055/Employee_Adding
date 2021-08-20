@@ -3,9 +3,9 @@ import Select from 'react-select';
 import './App.css';
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 
-function Input({setName, departmentList, setDepartment, submitData}) {
+function Input({ setName, departmentList, setDepartment, submitData }) {
     return (
-        <div>
+        <div className="flex form-wrapper">
             <div className="Form-heading">
                 <h3> EMPLOYEE DETAILS </h3>
             </div>
