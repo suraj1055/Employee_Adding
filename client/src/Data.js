@@ -1,4 +1,5 @@
 import { ColumnDirective, ColumnsDirective, GridComponent } from '@syncfusion/ej2-react-grids';
+import './App.css';
 
 const Data = ({ employeeList }) => {
 

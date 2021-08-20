@@ -1,9 +1,11 @@
 import React from 'react'
+import './App.css';
 import Select from 'react-select';
 import './App.css';
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 
 function Input({ setName, departmentList, setDepartment, submitData }) {
+
     return (
         <div className="flex form-wrapper">
             <div className="Form-heading">
