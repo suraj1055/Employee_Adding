@@ -4,10 +4,10 @@ import Axios from 'axios';
 import DeptList from './DeptList';
 import Navbar from './Navbar';
 
-function App() {
+function App( {Username, Password} ) {
 
-  const [Name, setName] = useState('')
-  const [Department, setDepartment] = useState('')
+  const [Name, setName] = useState('');
+  const [Department, setDepartment] = useState('');
   const [employeeList, setEmployeeList] = useState([]);
 
   const submitData = () => {
@@ -15,7 +15,9 @@ function App() {
   }
 
   return (
-        <Navbar setName={setName} departmentList={DeptList} setDepartment={setDepartment} submitData={submitData} employeeList={employeeList} setEmployeeList={setEmployeeList}/>
+        <>
+        <Navbar setName={setName} departmentList={DeptList} setDepartment={setDepartment} submitData={submitData} employeeList={employeeList} setEmployeeList={setEmployeeList} Username={Username} Password={Password}/>
+        </>
   );
 }
 

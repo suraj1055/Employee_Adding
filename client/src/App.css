@@ -146,6 +146,11 @@ h5{
   width: 1000px;
 }
 
+.home-component{
+  margin: 5rem auto;
+  width: 1100px;
+}
+
 .nav-heading{
   color: #fff;
 }
@@ -167,4 +172,22 @@ h5{
 
 .nav-heading{
   margin: 0 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.error-msg{
+  color: red;
+}
+
+.main-heading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem;
+}
+
+.main-heading div{
+  padding: 10px;
 }

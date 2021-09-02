@@ -1,22 +1,31 @@
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import './App.css';
-import { useState  } from 'react';
+import { useState } from 'react';
 import App from './App';
 import ReactDOM from 'react-dom';
+import Axios from 'axios';
 
 const Login = () => {
-    
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+
+    const [Username, setUsername] = useState('')
+    const [Password, setPassword] = useState('')
+    const [Error, setError] = useState('')
 
 
-    const Login =() => {
-        if (username === 'admin' && password === 'admin') {
-            ReactDOM.render(
-                <App />,
-              document.getElementById('root')
-            )
-        }
+    const Login = () => {
+        Axios.post('http://localhost:3001/api/login', { Username: Username, Password: Password }).then((response) => {
+
+            if (response.data.message) {
+                setError(response.data.message);
+            }
+            else {
+                ReactDOM.render(
+                    <App Username={Username} Password={Password} />,
+                    document.getElementById('root')
+                );
+            }
+
+        })
     }
 
     return (
@@ -33,6 +42,10 @@ const Login = () => {
 
             <div className="save-button">
                 <ButtonComponent className="btn" onClick={Login}> Log In </ButtonComponent>
+            </div>
+
+            <div className="error-msg">
+                <h4> {Error} </h4>
             </div>
 
         </div>

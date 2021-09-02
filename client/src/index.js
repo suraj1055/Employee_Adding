@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Navbar from './Navbar';
-import LogIn from './Login';
+import Navbar2 from './Navbar2';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-    <LogIn/>,
+    <Navbar2 />,
   document.getElementById('root')
 );
 
